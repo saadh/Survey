@@ -1,0 +1,39 @@
+<h1>New Survey Form</h1>
+
+<%= form_for :survey_forms, :url => survey_forms_path do |f| %>
+
+	<p>Please enter the name of the survey you wish to create</p>
+
+	<div class="field">
+		<%= f.label :name %><br/>
+    	<%= f.text_field :name %>
+	</div>
+
+	<br/>
+
+<h3>Enter 3 Questions for your survey</h3>
+
+	<%= f.fields_for :questions do |q| %>
+
+	<div class="field">
+
+		<%= q.label :content, "Question 1" %><br/>
+		<%= q.text_field :content %><br/>
+		<br/>
+
+		<%= q.label :content, "Question 2" %><br/>
+		<%= q.text_field :content %><br/>
+		<br/>
+
+		<%= q.label :content, "Question 3" %><br/>
+		<%= q.text_field :content %><br/>
+
+		<% end %>
+
+	</div>
+
+<br/>
+
+	<p><%= f.submit "Submit" %></p>
+
+<% end %>
